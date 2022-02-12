@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Expense Tracker Project</title>
+    <!--Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="CSS/style.css" />
+</head>
+
+<body>
+    <!-- Main-Section -->
+    <div class="main" style="background-color: rgb(255, 255, 255);">
+        <!-- Main Banner Section -->
+        <div class="top_section bg-success">
+            <h1 class="my-5">Expense Tracker Project</h1>
+            <h3 class="my-5">
+                Total Budget :
+                <span id="total_banner" class="text-white">Nrs 0</span>
+            </h3>
+            <div class="row" class="my-5">
+                <div class="col-6">
+                    <h3>
+                        Total Expense :
+                        <span id="total_expense" class="text-white">Nrs 0</span>
+                    </h3>
+                </div>
+                <div class="col-6">
+                    <h3>
+                        Total Income :
+                        <span id="total_income" class="text-white">Nrs 0</span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <!-- Add Item Form  -->
+        <div class="container my-5">
+            <div id="alerts">
+
+            </div>
+            <h3 class="mt-3">Set Limit</h3>
+            <form id="limits_form">
+                <div class="row">
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="daily_limit">Daily Limit</label>
+                            <input type="number" class="form-control" name="daily_limit" id="daily_limit"
+                                placeholder="Enter Daily Limit" required>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="monthly_limit">Monthly Limit</label>
+                            <input type="number" class="form-control" name="monthly_limit" id="monthly_limit"
+                                placeholder="Enter Monthly Limit" required>
+                        </div>
+                    </div>
+                    <div class="col-4 d-flex align-center py-4">
+                        <button type="submit" class="btn btn-danger">Set Limit</button>
+                    </div>
+                </div>
+            </form>
+
+            <h3 class="mt-3">Add Amount</h3>
+            <form id="add_item_form">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="amount">Enter Your Amount</label>
+                            <input type="text" class="form-control" name="amount" id="amount_form"
+                                placeholder="Enter Your Amount" required>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="amount_type">Amount Type</label>
+                            <select class="form-control" name="amount_type" id="amount_type_form" required>
+                                <option selected disabled></option>
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="amount_category">Category</label>
+                            <select class="form-control" name="amount_category" id="amount_category_form" required>
+                                <option selected disabled></option>
+                                <option value="food">Food</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="trravel">Travel</option>
+                                <option value="fees">Fees</option>
+                                <option value="jobs">Jobs</option>
+                                <option value="bonus">Bonus</option>
+                                <option value="freelancing">Freelancing</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="amount_date">Date</label>
+                            <input type="date" class="form-control" name="amount_date" id="amount_date_form"
+                                placeholder="Enter Date" required>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="amount_description">Description</label>
+                            <input type="text" class="form-control" name="amount_description"
+                                id="amount_description_form" placeholder="Enter Description" required>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <button type="submit" class="btn btn-danger">Add Amount</button>
+                    </div>
+                </div>
+            </form>
+            <h3 class="mt-4">Filters</h3>
+            <form id="filter_form">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="filter_type">Amount Type</label>
+                            <select class="form-control" name="filter_type" id="filter_type">
+                                <option selected disabled></option>
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="filter_category">Category</label>
+                            <select class="form-control" name="filter_category" id="filter_category">
+                                <option selected disabled></option>
+                                <option value="food">Food</option>
+                                <option value="entertainment">Entertainment</option>
+                                <option value="trravel">Travel</option>
+                                <option value="fees">Fees</option>
+                                <option value="jobs">Jobs</option>
+                                <option value="bonus">Bonus</option>
+                                <option value="freelancing">Freelancing</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="filter_date_from">From</label>
+                            <input type="date" class="form-control" name="filter_date_from" id="filter_date_from"
+                                placeholder="Enter Date">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-group">
+                            <label for="filter_date_to">To</label>
+                            <input type="date" class="form-control" name="filter_date_to" id="filter_date_to"
+                                placeholder="Enter Date">
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="filter_search">Search</label>
+                            <input type="text" class="form-control" name="filter_search" id="filter_search"
+                                placeholder="search">
+                        </div>
+                    </div>
+                    <div class="col-4 d-flex align-center pb-3 pt-4">
+                        <button type="submit" class="btn btn-success">Apply Filter</button>
+                    </div>
+                    <div class="col-4 d-flex align-center pb-3 pt-4">
+                        <button id="remove_filters_button" class="btn btn-danger">Remove Filter</button>
+                    </div>
+                </div>
+            </form>
+
+
+            <!-- Data Display  -->
+
+            <table class="table my-5">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Description</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="data_table_body"></tbody>
+            </table>
+
+            <!-- Button trigger modal
+            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#modelId">
+                Launch
+            </button> -->
+
+            <!-- Modal -->
+            <div class="modal fade" id="edit_modal_id" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Edit Amount</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="edit_item_form">
+                                <input type="number" name="edit_amount_id" id="edit_amount_id" hidden>
+                                <div class="form-group">
+                                    <label for="amount">Enter Your Amount</label>
+                                    <input type="text" class="form-control" name="amount" id="amount_form_edit"
+                                        placeholder="Enter Your Amount">
+                                </div>
+                                <div class="form-group">
+                                    <label for="amount_type">Amount Type</label>
+                                    <select class="form-control" name="amount_type" id="amount_type_form_edit">
+                                        <option value="income">Income</option>
+                                        <option value="expense">Expense</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="amount_category">Category</label>
+                                    <select class="form-control" name="amount_category" id="amount_category_form_edit">
+                                        <option value="food">Food</option>
+                                        <option value="entertainment">Entertainment</option>
+                                        <option value="trravel">Travel</option>
+                                        <option value="fees">Fees</option>
+                                        <option value="jobs">Jobs</option>
+                                        <option value="bonus">Bonus</option>
+                                        <option value="freelancing">Freelancing</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="amount_date">Date</label>
+                                    <input type="date" class="form-control" name="amount_date"
+                                        id="amount_date_form_edit" placeholder="Enter Date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="amount_description">Description</label>
+                                    <input type="text" class="form-control" name="amount_description"
+                                        id="amount_description_form_edit" placeholder="Enter Description">
+                                </div>
+                                <button type="submit" class="btn btn-info">Edit Amount</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <canvas id="monthlyChart">
+
+            </canvas>
+        </div>
+        <div class="top_section mt-5" style="background-color: black;">
+            <div class="container">
+                <h4>
+                    <span style="color: rgb(208, 238, 197); font-family: 'Righteous';">
+                        &copy; Copyright : <span id="date" class="px-2"> </span>
+                        <script>
+                            let date = document.getElementById('date');
+                            date.innerText = new Date().getFullYear()
+                        </script> MADE WITH <span class="px-2" style="color: red; font-size: 30px;">&hearts;</span>
+                        PRAKASH GHARTI MAGAR
+                    </span>
+                </h4>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./JS/script.js" type="module"></script>
+</body>
+
+</html>

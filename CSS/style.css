@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background-color: #eee;
+  color: #111;
+}
+.top_section {
+  padding: 20px;
+  text-align: center;
+}
+table {
+  font-size: 18px;
+}
